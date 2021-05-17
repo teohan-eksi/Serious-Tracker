@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Bare Electron App</title>
+  </head>
+  <body>
+
+	<h2>Timer</h2>
+
+	<input id="h" type="number" min="0" placeholder="0">
+	<input id="min" type="number" min="0" placeholder="0">
+	<input id="sec" type="number" min="0" placeholder="0">
+
+	<input id="start" type="submit" value="Start">
+
+	<p id="ticker"></p>
+
+    <!-- You can also require other files to run in this process -->
+    <script id="rendererScript" src="./renderer.js"></script>
+  </body>
+</html>
