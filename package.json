@@ -1,21 +1,15 @@
 {
-  "name": "bare-electron-app",
+  "name": "Serious Tracker",
   "version": "1.0.0",
-  "description": "Bare Electron application",
+  "description": "Tracking any metric.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
+  "repository": "",
+  "keywords": [],
   "author": "Han Exi",
-  "license": "CC0-1.0",
+  "license": "",
   "devDependencies": {
     "electron": "^12.0.7"
   },
