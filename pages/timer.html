@@ -5,13 +5,21 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Serious Tracker</title>
+    <title>Serious Tracker | Timer</title>
   </head>
   <body>
 
-	<a href="pages/timer.html">Timer</a>
+	<a href="../index.html"><-Back</a>
+
+	<input id="h" type="number" min="0" placeholder="0">
+	<input id="min" type="number" min="0" placeholder="0">
+	<input id="sec" type="number" min="0" placeholder="0">
+
+	<input id="start" type="submit" value="Start">
+
+	<p id="ticker"></p>
 
     <!-- You can also require other files to run in this process -->
-    <script id="rendererScript" src="./renderer.js"></script>
+    <script id="rendererScript" src="../scripts/timer.js"></script>
   </body>
 </html>
