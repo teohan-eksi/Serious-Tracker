@@ -5,8 +5,6 @@
 // selectively enable features needed in the rendering
 // process.
 
-
-
 document.getElementById("timer").addEventListener("click", ()=>{
   let xhrResponseProm = xhrAction("pages/timer.html");
 

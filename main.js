@@ -50,20 +50,19 @@ app.on('window-all-closed', function () {
 // code. You can also put them in separate files and require them here.
 
 //put this in another file, later.
-//TODOs, comment
 const { Notification, ipcMain, ipcRenderer} = require('electron');
 
 ipcMain.on('start-timer', (event, duration) => {
   //setting 1 sec intervals and sending them to the renderer.
-  let time = [0, 0, 0, 0];
+  let time = [0, 0, 0, 0];// hr, min, sec, total time passed.
   let totalT = 0;
   let tickerInterval = setInterval(() => {
-    time[2] = totalT%60;
+    time[2] = totalT%60; //set seconds
     if(time[2] === 0 && totalT !== 0){
-      time[1]++;
+      time[1]++;//minute increment
       if(time[1] === 60){
-        time[1] = 0;
-        time[0]++;
+        time[1] = 0;//reset minutes
+        time[0]++;//hour increment
       }
     }
 
@@ -71,13 +70,14 @@ ipcMain.on('start-timer', (event, duration) => {
 
     if(totalT >= duration){
       clearInterval(tickerInterval);
-      timeIsUp();
+      timeIsUp();//show notification to the user.
     }
     totalT++;
-    time[3] = totalT;
-  }, 1000);
+    time[3] = totalT; //update total time after every tick.
+  }, 1000);//1 second intervals
 });
 
+//show notification to the user.
 function timeIsUp(){
   const notification = {
         title: 'Serious Tracker',
@@ -86,7 +86,7 @@ function timeIsUp(){
       new Notification(notification).show();
 }
 
+//for sending data to the renderer after the mainWindow is created.
 function sendToRenderer(){
-  //for sending data to the renderer.
   //webContents.send('ch1', 'hi!');
 }
