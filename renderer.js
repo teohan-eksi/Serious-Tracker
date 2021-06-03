@@ -5,25 +5,46 @@
 // selectively enable features needed in the rendering
 // process.
 
-document.getElementById("timer").addEventListener("click", ()=>{
+//load main page elements here.
+document.addEventListener("DOMContentLoaded", ()=>{
+  //console.log("dom con load");
   //return a promise that gives a response.
-  let xhrResponseProm = xhrAction("pages/timer.html");
-
-  
+  let xhrResponseProm = xhrAction("pages/main-page-elements.html");
 
   xhrResponseProm.then((value)=>{
     //value is an HTML block
-    createTimerDiv(value);
+    createDiv(value);
+    addEventListeners();
   }, (error)=>{
     console.log(error);
   });
 
-  function createTimerDiv(value){
-    let timerDiv = document.createElement("div");
-    timerDiv.innerHTML = value;
-    document.body.appendChild(timerDiv);
-  }
 });
+
+function addEventListeners(){
+  //timer app EventListener
+  document.getElementById("timer").addEventListener("click", ()=>{
+    //return a promise that gives a response.
+    let xhrResponseProm = xhrAction("pages/timer.html");
+
+    //update the page before loading new elements according to the context.
+    //change title, remove main page specific elements
+
+    xhrResponseProm.then((value)=>{
+      //value is an HTML block
+      createDiv(value);
+    }, (error)=>{
+      console.log(error);
+    });
+  });
+}
+
+//value is an HTML block
+function createDiv(value){
+  let newDiv = document.createElement("div");
+  newDiv.innerHTML = value;
+  document.body.appendChild(newDiv);
+}
 
 function xhrAction(pathToRes){
   return new Promise((resolve, reject) => {
