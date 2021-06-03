@@ -14,7 +14,9 @@ document.getElementById("timer").addEventListener("click", ()=>{
 
   xhr.onload = function(){
     if(this.status == 200){
-      
+      let timerDiv = document.createElement("div");
+      timerDiv.innerHTML = this.response;
+      document.body.appendChild(timerDiv);
     }
   };
 
