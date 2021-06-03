@@ -7,13 +7,12 @@
 
 //load main page elements here.
 document.addEventListener("DOMContentLoaded", ()=>{
-  //console.log("dom con load");
   //return a promise that gives a response.
   let xhrResponseProm = xhrAction("pages/main-page-elements.html");
 
   xhrResponseProm.then((value)=>{
     //value is an HTML block
-    createDiv(value);
+    createElem("div", value);
     addEventListeners();
   }, (error)=>{
     console.log(error);
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 
 function addEventListeners(){
+  //it may require a promise in the future!
   //timer app EventListener
   document.getElementById("timer").addEventListener("click", ()=>{
     //return a promise that gives a response.
@@ -32,7 +32,7 @@ function addEventListeners(){
 
     xhrResponseProm.then((value)=>{
       //value is an HTML block
-      createDiv(value);
+      createElem("div", value);
     }, (error)=>{
       console.log(error);
     });
@@ -40,8 +40,8 @@ function addEventListeners(){
 }
 
 //value is an HTML block
-function createDiv(value){
-  let newDiv = document.createElement("div");
+function createElem(elem, value){
+  let newDiv = document.createElement(elem);
   newDiv.innerHTML = value;
   document.body.appendChild(newDiv);
 }
