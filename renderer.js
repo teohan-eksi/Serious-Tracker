@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   xhrResponseProm.then((value)=>{
     //value is an HTML block
     createElem("div", value);
+    //be careful for future listeners
     addEventListeners();
   }, (error)=>{
     console.log(error);
@@ -29,21 +30,27 @@ function addEventListeners(){
 
     //update the page before loading new elements according to the context.
     //change title, remove main page specific elements
+    document.title = "Serious Tracker | Timer";
+    document.getElementById("main-page-elems").remove();
 
     xhrResponseProm.then((value)=>{
       //value is an HTML block
       createElem("div", value);
+      //script tag should be specifically created, otherwise it won't be initialized.
+      createElem("script", "").src = "scripts/timer.js";
     }, (error)=>{
       console.log(error);
     });
+
   });
 }
 
 //value is an HTML block
 function createElem(elem, value){
-  let newDiv = document.createElement(elem);
-  newDiv.innerHTML = value;
-  document.body.appendChild(newDiv);
+  let newElem = document.createElement(elem);
+  newElem.innerHTML = value;
+  document.body.appendChild(newElem);
+  return newElem;
 }
 
 function xhrAction(pathToRes){
