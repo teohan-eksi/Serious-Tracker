@@ -6,9 +6,13 @@
 // process.
 
 document.getElementById("timer").addEventListener("click", ()=>{
+  //return a promise that gives a response.
   let xhrResponseProm = xhrAction("pages/timer.html");
 
+  
+
   xhrResponseProm.then((value)=>{
+    //value is an HTML block
     createTimerDiv(value);
   }, (error)=>{
     console.log(error);
@@ -23,10 +27,13 @@ document.getElementById("timer").addEventListener("click", ()=>{
 
 function xhrAction(pathToRes){
   return new Promise((resolve, reject) => {
+    //create an xhr object.
     let xhr = new XMLHttpRequest();
 
+    // GET the resource located by the path.
     xhr.open("GET", pathToRes, true);
 
+    //overriding onload function to resolve the promise with the response.
     xhr.onload = function(){
       if(this.status == 200){
         resolve(this.response);
