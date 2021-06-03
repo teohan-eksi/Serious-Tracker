@@ -6,19 +6,39 @@
 // process.
 
 
+
 document.getElementById("timer").addEventListener("click", ()=>{
+  let xhrResponseProm = xhrAction("pages/timer.html");
 
-  let xhr = new XMLHttpRequest();
+  xhrResponseProm.then((value)=>{
+    createTimerDiv(value);
+  }, (error)=>{
+    console.log(error);
+  });
 
-  xhr.open("GET", "pages/timer.html", true);
-
-  xhr.onload = function(){
-    if(this.status == 200){
-      let timerDiv = document.createElement("div");
-      timerDiv.innerHTML = this.response;
-      document.body.appendChild(timerDiv);
-    }
-  };
-
-  xhr.send();
+  function createTimerDiv(value){
+    let timerDiv = document.createElement("div");
+    timerDiv.innerHTML = value;
+    document.body.appendChild(timerDiv);
+  }
 });
+
+function xhrAction(pathToRes){
+  return new Promise((resolve, reject) => {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open("GET", pathToRes, true);
+
+    xhr.onload = function(){
+      if(this.status == 200){
+        resolve(this.response);
+      }
+    }
+
+    xhr.onerror = function(){
+        reject("xhr error");
+    }
+
+    xhr.send();
+  });
+}
