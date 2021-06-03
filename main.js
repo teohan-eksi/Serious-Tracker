@@ -20,6 +20,8 @@ function createWindow () {
   //to send messages from main to renderer.
   webContents = mainWindow.webContents;
   webContents.on('did-finish-load', () => {
+    //call this function when you want to send data to renderer
+    //immediately after the mainWindow finishes loading.
     sendToRenderer();
  })
 }
@@ -85,6 +87,6 @@ function timeIsUp(){
 }
 
 function sendToRenderer(){
-  //for renderer initialization after loading
+  //for sending data to the renderer.
   //webContents.send('ch1', 'hi!');
 }
