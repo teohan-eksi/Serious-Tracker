@@ -1,8 +1,11 @@
 
 
 
-//backButton(pathToBack, )
-window.ipc.backButton("../index.html");
+//back button call
+document.getElementById("back-btn").addEventListener("click", ()=>{
+	//backButton(removeID, addPage)
+	backButton("timer-page-elems", "main-page-elements.html");
+});
 
 let startBtn = document.getElementById("start");
 
