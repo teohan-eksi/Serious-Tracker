@@ -1,22 +1,25 @@
 
 
-
-function loadMainPageDiv(){
-  //return a promise that gives a response.
-  let xhrResponseProm = xhrAction("pages/main-page-div.html");
-
-  xhrResponseProm.then((value)=>{
+//loads a page to the div element with the id=root
+function loadPage(pageURL){
+  //xhr promise carries a resource(HTML).
+  xhrPromise(pageURL).then((value)=>{
     //value is an HTML block (innerHTML)
-    document.getElementById("root").innerHTML = value;
-    //be careful for future listeners
-    addEventListeners();
-  }, (error)=>{
-    console.log(error);
+    const rootElem = document.getElementById("root");
+    rootElem.innerHTML = value;
+    return rootElem.firstElementChild;
+  }).then((value)=>{
+    if(pageURL=="pages/main-page-div.html"){
+      addEventListeners();
+    }else if(pageURL=="pages/timer-page-div.html"){
+        value.appendChild(createScript("timer-script", "scripts/timer.js"));
+    }
   });
+
 }
 
-// to manage xhr connections
-function xhrAction(pathToRes){
+//manage xhr connections
+function xhrPromise(pathToRes){
   return new Promise((resolve, reject) => {
     //create an xhr object.
     let xhr = new XMLHttpRequest();
@@ -39,42 +42,30 @@ function xhrAction(pathToRes){
   });
 }
 
-//value is an HTML block
-function createElem(elem, value){
-  let newElem = document.createElement(elem);
-  newElem.innerHTML = value;
-  document.body.appendChild(newElem);
-  return newElem;
-}
-
 function addEventListeners(){
   //it may require a promise in the future!
 
-  //timer app EventListener
-  document.getElementById("timer").addEventListener("click", ()=>{
-    //return a promise that gives a response.
-    let xhrResponseProm = xhrAction("pages/timer-page-div.html");
+  //main-page event listeners
+      //timer app event listener
+      document.getElementById("timer-page-btn").addEventListener("click", ()=>{
+        //update the page before loading new elements according to the context.
+        //change title, remove main page specific elements
+        document.title = "Serious Tracker | Timer";
+        document.getElementById("main-page-div").remove();
 
-    //update the page before loading new elements according to the context.
-    //change title, remove main page specific elements
-    document.title = "Serious Tracker | Timer";
-    document.getElementById("main-page-div").remove();
+        loadPage("pages/timer-page-div.html");
+      });
+}
 
-    xhrResponseProm.then((value)=>{
-      //value is an HTML block
-      document.getElementById("root").innerHTML = value;
-      //script tag should be specifically created, otherwise it won't be initialized.
-      createElem("script", "").src = "scripts/timer.js";
-    }, (error)=>{
-      console.log(error);
-    });
-
-  });
+function createScript(elemID, elemSrc){
+  let newElem = document.createElement("script");
+  newElem.id = elemID;
+  newElem.src = elemSrc;
+  return newElem;
+  //document.body.appendChild(newElem);
 }
 
 function backButton(removeID, addPage){
   document.getElementById(removeID).remove();
-  if(addPage == "main-page-div.html"){
-    loadMainPageDiv();
-  }
+  loadPage("pages/main-page-div.html");
 }

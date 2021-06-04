@@ -7,9 +7,7 @@ document.getElementById("back-btn").addEventListener("click", ()=>{
 	backButton("timer-page-div", "main-page-div.html");
 });
 
-let startBtn = document.getElementById("start");
-
-startBtn.addEventListener("click", startTimer);
+document.getElementById("start").addEventListener("click", startTimer);
 
 function startTimer(){
 	let h = document.getElementById("h").value;
