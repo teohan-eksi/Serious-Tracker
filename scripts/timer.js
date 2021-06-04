@@ -1,6 +1,9 @@
 
 
 
+//backButton(pathToBack, )
+window.ipc.backButton("../index.html");
+
 let startBtn = document.getElementById("start");
 
 startBtn.addEventListener("click", startTimer);
