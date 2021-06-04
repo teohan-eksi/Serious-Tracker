@@ -7,5 +7,5 @@
 
 //call to load main page elements in utils.js
 document.addEventListener("DOMContentLoaded", ()=>{
-  loadMainPageElems();
+  loadMainPageDiv();
 });

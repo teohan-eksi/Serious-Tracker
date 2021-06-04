@@ -4,7 +4,7 @@
 //back button call
 document.getElementById("back-btn").addEventListener("click", ()=>{
 	//backButton(removeID, addPage)
-	backButton("timer-page-elems", "main-page-elements.html");
+	backButton("timer-page-div", "main-page-div.html");
 });
 
 let startBtn = document.getElementById("start");
