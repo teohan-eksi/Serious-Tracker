@@ -7,7 +7,7 @@ document.getElementById("back-btn").addEventListener("click", ()=>{
 	backButton("timer-page-div", "main-page-div.html");
 });
 
-document.getElementById("start").addEventListener("click", ()=>{
+document.getElementById("start-btn").addEventListener("click", ()=>{
 	let h = document.getElementById("h").value;
 	let min = document.getElementById("min").value;
 	let sec = document.getElementById("sec").value;
@@ -38,6 +38,7 @@ document.getElementById("start").addEventListener("click", ()=>{
 		// time = [hr, min, sec, totalTimePassed]
 		getter('time').then((time) => {
 				//TODO refresh ticker when refocused.
+				console.log(time);
 				ticker.innerHTML = time[0]+":"+time[1]+":"+time[2];
 
 				//remove any listener on the channel 'time' to save memory.
@@ -52,8 +53,25 @@ document.getElementById("start").addEventListener("click", ()=>{
 		});
 	}
 	requestAnimationFrame(callback);
+
+	//hide start button and show reset button
+	document.getElementById("start-btn").style.visibility = "hidden";
+	createResetButton();
 });
 
 function getter(ch){
 	return window.ipc.returnPromiseFromMain(ch);
+}
+
+function createResetButton(){
+	let resetBtn = document.createElement("button");
+	resetBtn.id = "reset-btn";
+	resetBtn.innerHTML = "Reset";
+	document.getElementById("timer-page-div")
+		.insertBefore(resetBtn, document.getElementById("ticker"));
+
+	resetBtn.addEventListener("click", ()=>{
+		console.log("res");
+		window.ipc.clearInterval();
+	});
 }

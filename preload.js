@@ -11,6 +11,10 @@ contextBridge.exposeInMainWorld('ipc', {
 		ipcRenderer.send('start-timer', duration);
 	},
 
+	clearInterval: () => {
+		ipcRenderer.send('clear-interval');
+	},
+
 	//does what it promised upon request from a renderer process.
 	returnPromiseFromMain: (channel) => {
 		return myP = new Promise((resolve) => {

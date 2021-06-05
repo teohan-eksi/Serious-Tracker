@@ -75,6 +75,11 @@ ipcMain.on('start-timer', (event, duration) => {
     totalT++;
     time[3] = totalT; //update total time after every tick.
   }, 1000);//1 second intervals
+
+  ipcMain.on('clear-interval', () => {
+    console.log("cle");
+    clearInterval(tickerInterval);
+  });
 });
 
 //show notification to the user.
