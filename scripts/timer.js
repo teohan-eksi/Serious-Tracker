@@ -7,9 +7,7 @@ document.getElementById("back-btn").addEventListener("click", ()=>{
 	backButton("timer-page-div", "main-page-div.html");
 });
 
-document.getElementById("start").addEventListener("click", startTimer);
-
-function startTimer(){
+document.getElementById("start").addEventListener("click", ()=>{
 	let h = document.getElementById("h").value;
 	let min = document.getElementById("min").value;
 	let sec = document.getElementById("sec").value;
@@ -54,7 +52,7 @@ function startTimer(){
 		});
 	}
 	requestAnimationFrame(callback);
-}
+});
 
 function getter(ch){
 	return window.ipc.returnPromiseFromMain(ch);
