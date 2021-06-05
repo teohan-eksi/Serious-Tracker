@@ -7,5 +7,14 @@
 
 //call to load main page elements in utils.js
 document.addEventListener("DOMContentLoaded", ()=>{
-  loadPage("pages/main-page-div.html");
+  //create utils.js and append it to the body
+  let utilsScript = document.createElement("script");
+  utilsScript.id = "utils-script";
+  utilsScript.src = "./scripts/utils.js";
+  document.body.appendChild(utilsScript);
+  //load main-page-div.html when the utils script is loaded.
+  utilsScript.onload = () => {
+    loadPage("pages/main-page-div.html");
+  }
+  utilsScript = null;
 });

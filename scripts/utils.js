@@ -1,5 +1,6 @@
 
 
+
 //loads a page to the div element with the id=root
 function loadPage(pageURL){
   //xhr promise carries a resource(HTML).
@@ -15,7 +16,6 @@ function loadPage(pageURL){
         value.appendChild(createScript("timer-script", "scripts/timer.js"));
     }
   });
-
 }
 
 //manage xhr connections
@@ -46,14 +46,14 @@ function addEventListeners(){
   //it may require a promise in the future!
 
   //main-page event listeners
-      //timer app event listener
-      document.getElementById("timer-page-btn").addEventListener("click", ()=>{
-        //update the page before loading new elements according to the context.
-        //change title, remove main page specific elements
-        document.title = "Serious Tracker | Timer";
-        document.getElementById("main-page-div").remove();
+  //timer app event listener
+  document.getElementById("timer-page-btn").addEventListener("click", ()=>{
+    //update the page before loading new elements according to the context.
+    //change title, remove main page specific elements
+    document.title = "Serious Tracker | Timer";
+    document.getElementById("main-page-div").remove();
 
-        loadPage("pages/timer-page-div.html");
+    loadPage("pages/timer-page-div.html");
       });
 }
 
