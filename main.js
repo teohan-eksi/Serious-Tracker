@@ -77,7 +77,6 @@ ipcMain.on('start-timer', (event, duration) => {
   }, 1000);//1 second intervals
 
   ipcMain.on('clear-interval', () => {
-    console.log("cle");
     clearInterval(tickerInterval);
   });
 });
