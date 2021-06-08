@@ -52,6 +52,9 @@ app.on('window-all-closed', function () {
 //put this in another file, later.
 const { Notification, ipcMain, ipcRenderer} = require('electron');
 
+const {timerMainProcess} = require('./scripts/timerMainProcess');
+console.log("it is: " + timerMainProcess.demoFun;
+
 ipcMain.on('start-timer', (event, duration) => {
   //setting 1 sec intervals and sending them to the renderer.
   let time = [0, 0, 0, 0];// hr, min, sec, total time passed.
