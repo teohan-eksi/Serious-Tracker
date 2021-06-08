@@ -46,54 +46,24 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
 
+//---- developer created main proces code ----
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. You can also put them in separate files and !"require"! them here.
 
-//put this in another file, later.
-const { Notification, ipcMain, ipcRenderer} = require('electron');
+const { ipcMain } = require('electron');
 
-const {timerMainProcess} = require('./scripts/timerMainProcess');
-console.log("it is: " + timerMainProcess.demoFun;
+//timer specific code
+const { timer, clearTimeInterval } = require('./scripts/timerMainProcess.js');
 
 ipcMain.on('start-timer', (event, duration) => {
-  //setting 1 sec intervals and sending them to the renderer.
-  let time = [0, 0, 0, 0];// hr, min, sec, total time passed.
-  let totalT = 0;
-  let tickerInterval = setInterval(() => {
-    time[2] = totalT%60; //set seconds
-    if(time[2] === 0 && totalT !== 0){
-      time[1]++;//minute increment
-      if(time[1] === 60){
-        time[1] = 0;//reset minutes
-        time[0]++;//hour increment
-      }
-    }
-
-    webContents.send('time', time);
-
-    if(totalT >= duration){
-      clearInterval(tickerInterval);
-      timeIsUp();//show notification to the user.
-    }
-    totalT++;
-    time[3] = totalT; //update total time after every tick.
-  }, 1000);//1 second intervals
-
-  ipcMain.on('clear-interval', () => {
-    clearInterval(tickerInterval);
-  });
+  timer(duration, webContents);
 });
 
-//show notification to the user.
-function timeIsUp(){
-  const notification = {
-        title: 'Serious Tracker',
-        body: 'Time is up!'
-      };
-      new Notification(notification).show();
-}
+ipcMain.on('clear-interval', () => {
+  clearTimeInterval();
+});
 
-//for sending data to the renderer after the mainWindow is created.
+//for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');
 }
