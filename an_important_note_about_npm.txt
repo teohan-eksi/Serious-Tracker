@@ -1,0 +1,5 @@
+
+
+
+if "npm install" doesnt work, delete node_modules dir, package.lock.json
+and try again before opening atom.
