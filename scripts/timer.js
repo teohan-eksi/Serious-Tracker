@@ -1,12 +1,6 @@
 
 
 
-//home button call
-document.getElementById("home-btn").addEventListener("click", ()=>{
-	//homeButton(removeID)
-	homeButton("timer-page-div");
-});
-
 document.getElementById("start-btn").addEventListener("click", ()=>{
 	let h = document.getElementById("h").value;
 	let min = document.getElementById("min").value;
@@ -76,7 +70,7 @@ function createResetButton(arr){
 	let resetBtn = document.createElement("button");
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
-	document.getElementById("timer-page-div")
+	document.getElementById("time-page-div")
 		.insertBefore(resetBtn, document.getElementById("ticker"));
 
 	resetBtn.addEventListener("click", ()=>{

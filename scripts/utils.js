@@ -1,7 +1,10 @@
 
 
 
-//loads a page to the div element with the id=root
+let activePageID;
+
+//loads a page to the div element with the id="root"
+//this function is a bit complex :(
 function loadPage(pageURL){
   //xhr promise carries a resource file(HTML).
   xhrPromise(pageURL).then((value)=>{
@@ -14,9 +17,11 @@ function loadPage(pageURL){
   }).then((value)=>{
     //value = id of the top div element inside the root div element.
     if(pageURL=="pages/main-page-div.html"){
+      activePageID = "main-page-div";
       addEventListeners();
-    }else if(pageURL=="pages/timer-page-div.html"){
-      //add the timer script to the div element with the timer-page id.
+    }else if(pageURL=="pages/time-page-div.html"){
+      activePageID = "time-page-div";
+      //add the timer script to the div element with the time-page-div id.
       //the script along with the div element will be removed when the page changes.
       value.appendChild(createScript("timer-script", "scripts/timer.js"));
     }
@@ -51,13 +56,38 @@ function addEventListeners(){
   //update the page before loading new elements according to the context.
   //change title, remove main page specific elements, ...
 
-  //timer app event listener
-  document.getElementById("timer-page-btn").addEventListener("click", ()=>{
-    document.title = "Serious Tracker | Timer";
+  //time page button
+  function timeBtnClick(){
+    document.title = "Serious Tracker | Time";
     document.getElementById("main-page-div").remove();
+    loadPage("pages/time-page-div.html");
+    //activePageID = "time-page-div"
+    //----
+    //event listener doesn't removed when the script removed,
+    //so remove it immediately after a click and the button
+    //will be a one click button as well.
+    document.getElementById("time-page-btn").removeEventListener("click", timeBtnClick);
+  }
+  document.getElementById("time-page-btn").addEventListener("click", timeBtnClick);
 
-    loadPage("pages/timer-page-div.html");
-  });
+  //home button
+  function homeBtnClick(){
+    //to prevent adding multiple event listener because of multiple click,
+    //add only one event listener at the first load of main page.
+    if(activePageID != "main-page-div"){
+      document.title = "Serious Tracker";
+      document.getElementById(activePageID).remove();
+      loadPage("pages/main-page-div.html");
+      //activePageID = "main-page-div"
+      //----
+      //event listener isn't removed when the script element removed,
+      //so remove it immediately after a click and the button
+      //will be a one click button as well.
+      document.getElementById("home-btn").removeEventListener("click", homeBtnClick);
+    }
+  }
+  document.getElementById("home-btn").addEventListener("click", homeBtnClick);
+
 }
 
 function createScript(elemID, elemSrc){
@@ -65,10 +95,4 @@ function createScript(elemID, elemSrc){
   newElem.id = elemID;
   newElem.src = elemSrc;
   return newElem;
-}
-
-function homeButton(removeID){
-  document.title = "Serious Tracker";
-  document.getElementById(removeID).remove();
-  loadPage("pages/main-page-div.html");
 }
