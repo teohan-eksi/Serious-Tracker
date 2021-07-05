@@ -57,7 +57,7 @@ function addEventListeners(){
     document.getElementById("main-page-div").remove();
 
     loadPage("pages/timer-page-div.html");
-      });
+  });
 }
 
 function createScript(elemID, elemSrc){
@@ -67,7 +67,8 @@ function createScript(elemID, elemSrc){
   return newElem;
 }
 
-function backButton(removeID, addPage){
+function homeButton(removeID){
+  document.title = "Serious Tracker";
   document.getElementById(removeID).remove();
   loadPage("pages/main-page-div.html");
 }

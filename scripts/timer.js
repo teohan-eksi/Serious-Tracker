@@ -1,10 +1,10 @@
 
 
 
-//back button call
-document.getElementById("back-btn").addEventListener("click", ()=>{
-	//backButton(removeID, addPage)
-	backButton("timer-page-div", "main-page-div.html");
+//home button call
+document.getElementById("home-btn").addEventListener("click", ()=>{
+	//homeButton(removeID)
+	homeButton("timer-page-div");
 });
 
 document.getElementById("start-btn").addEventListener("click", ()=>{
