@@ -5,21 +5,9 @@ body{
   background-color: #e5e4e2;
 }
 
-.main-page-logo{
+.main-menu-item{
   display: inline-block;
   width: 50px;
   height: 50px;
   background-color: #00ff22;
-}
-
-.main-page-title{
-  display: inline;
-  background-color: #00ff22;
-}
-
-.main-page-heading{
-  margin: -2px -5px 0 -5px;
-  padding: 8px;
-  color: #1a1110;
-  border-bottom: solid #ef674e;
 }
