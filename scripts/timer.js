@@ -49,7 +49,7 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 					if(time[3] !== duration){
 						requestAnimationFrame(callback);//returns a unique ID, reqID.
 					}else {
-
+						onFinishTimer();
 					}
 			});
 		}
@@ -85,4 +85,8 @@ function createResetButton(arr){
 
 		resetBtn.remove();
 	});
+}
+
+function onFinishTimer(){
+	//add the form div and implent the functionalities.
 }

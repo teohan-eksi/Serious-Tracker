@@ -1,6 +1,8 @@
 
 
 
+
+
 let tickerInterval = null;
 function timer(duration, webContents){
   //setting 1 sec intervals and sending them to the renderer.
@@ -21,7 +23,7 @@ function timer(duration, webContents){
 
     if(totalT >= duration){
       clearInterval(tickerInterval);
-      timeIsUp();//show notification to the user.
+      timeIsUp(webContents);//show notification to the user.
     }
     totalT++;
     time[3] = totalT; //update total time after every tick.
@@ -35,12 +37,15 @@ function clearTimeInterval(){
 //show notification to the user.
 const { Notification} = require('electron');
 
-function timeIsUp(){
+function timeIsUp(webContents){
   const notification = {
         title: 'Serious Tracker',
         body: 'Time is up!'
       };
-      new Notification(notification).show();
+  new Notification(notification).show();
+
+  //
+  //webContents.send("on-finish-timer", true);
 }
 
 module.exports = {
