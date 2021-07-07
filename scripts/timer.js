@@ -70,7 +70,7 @@ function createResetButton(arr){
 	let resetBtn = document.createElement("button");
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
-	document.getElementById("time-page-div")
+	document.getElementById("timer")
 		.insertBefore(resetBtn, document.getElementById("ticker"));
 
 	resetBtn.addEventListener("click", ()=>{

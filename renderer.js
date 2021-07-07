@@ -5,7 +5,9 @@
 // selectively enable features needed in the rendering
 // process.
 
-//call to load main page elements in utils.js
+let activePageID;
+
+//load utils.js which is to be used in renderer process features.
 document.addEventListener("DOMContentLoaded", ()=>{
   //create utils.js and append it to the body
   let utilsScript = document.createElement("script");
@@ -14,7 +16,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
   document.body.appendChild(utilsScript);
   //load main-page-div.html when the utils script is loaded.
   utilsScript.onload = () => {
-    loadPage("pages/main-page-div.html");
+    //load main-page as default opening page
+    //returns a fetch promise
+    loadPage("pages/main-page-div.html")
+      .then(()=>{
+        activePageID = "main-page-div";
+        addIndexEventListeners();
+      })
+      .then(()=>{
+        //add a script to manage main-page features
+        addScript("timer", "./scripts/timer.js");
+      });
   }
   utilsScript = null;
 });
