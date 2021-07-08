@@ -1,8 +1,6 @@
 
 
 
-
-
 let tickerInterval = null;
 function timer(duration, webContents){
   //setting 1 sec intervals and sending them to the renderer.
@@ -30,7 +28,7 @@ function timer(duration, webContents){
   }, 1000);//1 second intervals
 }
 
-function clearTimeInterval(){
+function clearTimerInterval(){
   clearInterval(tickerInterval);
 }
 
@@ -50,5 +48,5 @@ function timeIsUp(webContents){
 
 module.exports = {
   timer,
-  clearTimeInterval
+  clearTimerInterval
 }

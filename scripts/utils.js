@@ -44,6 +44,9 @@ function addIndexEventListeners(){
           activePageID = "main-page-div"
           //add main page script
           addScript("timer", "./scripts/timer.js");
+        })
+        .then(()=>{
+          addScript("stopwatch", "./scripts/stopwatch.js")
         });
       loadPagePromise = null;
 

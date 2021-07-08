@@ -55,8 +55,9 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 		}
 		requestAnimationFrame(callback);
 
-		//hide start button and show reset button
+		//hide start buttons and show reset button
 		document.getElementById("start-btn").disabled = true;
+		document.getElementById("start-stopwatch-btn").disabled = true;
 		createResetButton();
 	}
 });
@@ -74,7 +75,7 @@ function createResetButton(arr){
 		.insertBefore(resetBtn, document.getElementById("ticker"));
 
 	resetBtn.addEventListener("click", ()=>{
-		window.ipc.clearInterval();
+		window.ipc.clearTimerInterval();
 
 		document.getElementById("h").value="";
 		document.getElementById("min").value="";
@@ -84,6 +85,7 @@ function createResetButton(arr){
 		document.getElementById("on-finish-timer").remove();
 
 		document.getElementById("start-btn").disabled = false;
+		document.getElementById("start-stopwatch-btn").disabled = false;
 
 		resetBtn.remove();
 	});

@@ -53,14 +53,25 @@ app.on('window-all-closed', function () {
 const { ipcMain } = require('electron');
 
 //timer specific code
-const { timer, clearTimeInterval } = require('./scripts/timerMainProcess.js');
+const { timer, clearTimerInterval } = require('./scripts/timerMainProcess.js');
 
 ipcMain.on('start-timer', (event, duration) => {
   timer(duration, webContents);
 });
 
-ipcMain.on('clear-interval', () => {
-  clearTimeInterval();
+ipcMain.on('clear-timer-interval', () => {
+  clearTimerInterval();
+});
+
+//stopwatch
+const { stopwatch, clearStopwatchInterval } = require('./scripts/stopwatchMainProcess.js');
+
+ipcMain.on('start-stopwatch', (event) => {
+  stopwatch(webContents);
+});
+
+ipcMain.on('clear-stopwatch-interval', () => {
+  clearStopwatchInterval();
 });
 
 //for sending data to the renderer immediately after the mainWindow is created.

@@ -11,8 +11,16 @@ contextBridge.exposeInMainWorld('ipc', {
 		ipcRenderer.send('start-timer', duration);
 	},
 
-	clearInterval: () => {
-		ipcRenderer.send('clear-interval');
+	startStopwatch: () => {
+		ipcRenderer.send('start-stopwatch');
+	},
+
+	clearTimerInterval: () => {
+		ipcRenderer.send('clear-timer-interval');
+	},
+
+	clearStopwatchInterval: () => {
+		ipcRenderer.send('clear-stopwatch-interval');
 	},
 
 	//does what it promised upon request from a renderer process.

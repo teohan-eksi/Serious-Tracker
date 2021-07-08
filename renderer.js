@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       .then(()=>{
         //add a script to manage main-page features
         addScript("timer", "./scripts/timer.js");
+      })
+      .then(()=>{
+        addScript("stopwatch", "./scripts/stopwatch.js")
       });
   }
   utilsScript = null;
