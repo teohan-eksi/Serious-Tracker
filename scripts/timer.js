@@ -1,4 +1,4 @@
-
+console.log("timer.js");
 
 
 document.getElementById("start-btn").addEventListener("click", ()=>{
@@ -81,6 +81,8 @@ function createResetButton(arr){
 		document.getElementById("sec").value="";
 		document.getElementById("ticker").innerHTML = "";
 
+		document.getElementById("on-finish-timer").remove();
+
 		document.getElementById("start-btn").disabled = false;
 
 		resetBtn.remove();
@@ -89,4 +91,7 @@ function createResetButton(arr){
 
 function onFinishTimer(){
 	//add the form div and implent the functionalities.
+	console.log("timer finished");
+
+	loadPage("main-page-div", "./pages/on-finish-timer.html");
 }

@@ -20,14 +20,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
   utilsScript.onload = () => {
     //load main-page as default opening page
     //returns a fetch promise
-    loadPage("pages/main-page-div.html")
+    loadPage("root", "pages/main-page-div.html")
       .then(()=>{
         activePageID = "main-page-div";
         addIndexEventListeners();
       })
       .then(()=>{
         //add a script to manage main-page features
-        //addScript("timer", "./scripts/timer.js");
+        addScript("timer", "./scripts/timer.js");
       });
   }
   utilsScript = null;

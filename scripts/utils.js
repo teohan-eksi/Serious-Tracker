@@ -3,19 +3,20 @@
 
 console.log("utils.js");
 
-const rootElem = document.getElementById("root");
 
-function loadPage(url){
-  rootElem.innerHTML = null;
-
+function loadPage(parentID, url){
   return fetch(url)
     .then(response => response.text())
     .then(response => {
-      // Convert the HTML response text into a document object if necessary.
-      //let parser = new DOMParser();
-  	  //let html_doc = parser.parseFromString(html, 'text/html');
+      // Convert the HTML response text into an html object if necessary.
+      let parser = new DOMParser();
+  	  let html_doc = parser.parseFromString(response, 'text/html');
 
-      rootElem.innerHTML = response;
+      //get the one and only child of the body element
+      //which will be added to the element with parentID
+      document.getElementById(parentID)
+        .appendChild(html_doc.body.childNodes[0]);
+
       console.log(url + " loaded");
 
       //return stuff; if necessary.
@@ -36,7 +37,7 @@ function addIndexEventListeners(){
 
       document.getElementById(activePageID).remove();
 
-      loadPagePromise = loadPage("pages/main-page-div.html");
+      loadPagePromise = loadPage("root", "pages/main-page-div.html");
       loadPagePromise
         .then(()=>{
           activePageID = null;//release the previous value to prevent a leak
@@ -58,7 +59,7 @@ function addIndexEventListeners(){
 
       document.getElementById(activePageID).remove();
 
-      loadPagePromise = loadPage("pages/history-page-div.html");
+      loadPagePromise = loadPage("root", "pages/history-page-div.html");
       loadPagePromise
         .then(()=>{
           activePageID = null;//release the previous value to prevent a leak
