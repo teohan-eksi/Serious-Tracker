@@ -5,7 +5,9 @@
 // selectively enable features needed in the rendering
 // process.
 
-let activePageID;
+console.log("renderer.js");
+
+let activePageID = null;
 
 //load utils.js which is to be used in renderer process features.
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
       })
       .then(()=>{
         //add a script to manage main-page features
-        addScript("timer", "./scripts/timer.js");
+        //addScript("timer", "./scripts/timer.js");
       });
   }
   utilsScript = null;
