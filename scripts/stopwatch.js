@@ -55,6 +55,7 @@ function createStopButton(arr){
     window.ipc.clearStopwatchInterval();
 
 		//document.getElementById("on-finish-timer").remove();
+    loadPage("main-page-div", "./pages/on-stop-stopwatch.html");
 
 		stopBtn.remove();
 	});
@@ -85,6 +86,9 @@ function createStopwatchResetButton(){
 
     if(document.getElementById("stop-btn") != null){
         document.getElementById("stop-btn").remove();
+    }
+    if(document.getElementById("on-stop-stopwatch") != null){
+      document.getElementById("on-stop-stopwatch").remove();
     }
 
 	});
