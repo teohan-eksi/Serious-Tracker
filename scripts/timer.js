@@ -71,6 +71,7 @@ function createResetButton(){
 	let resetBtn = document.createElement("button");
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
+	resetBtn.classList.add("page-buttons");
 	document.getElementById("timer")
 		.insertBefore(resetBtn, document.getElementById("ticker"));
 
@@ -82,7 +83,10 @@ function createResetButton(){
 		document.getElementById("sec").value="";
 		document.getElementById("ticker").innerHTML = "";
 
-		document.getElementById("on-finish-timer").remove();
+		if(document.getElementById("on-finish-timer") != null){
+      document.getElementById("on-finish-timer").remove();
+    }
+
 
 		document.getElementById("start-btn").disabled = false;
 		document.getElementById("start-stopwatch-btn").disabled = false;

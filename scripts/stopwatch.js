@@ -46,6 +46,7 @@ function createStopButton(arr){
 	let stopBtn = document.createElement("button");
 	stopBtn.id = "stop-btn";
 	stopBtn.innerHTML = "Stop";
+  stopBtn.classList.add("page-buttons");
 	document.getElementById("stopwatch")
 		.insertBefore(stopBtn, document.getElementById("stopwatch-ticker"));
 
@@ -69,6 +70,7 @@ function createStopwatchResetButton(){
 	let resetBtn = document.createElement("button");
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
+  resetBtn.classList.add("page-buttons");
 	document.getElementById("stopwatch")
 		.insertBefore(resetBtn, document.getElementById("stopwatch-ticker"));
 

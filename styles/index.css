@@ -3,11 +3,26 @@
 
 body{
   background-color: #e5e4e2;
+  color: #1e2519;
 }
 
-.main-menu-item{
+.main-menu-buttons{
+  background: linear-gradient(99deg, #f87010, #c8f2e7);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #1e2519;
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  background-color: #00ff22;
+  height: 35px;
+  font-size: 1.25em;
+  font-weight: 525;
+  width: 4.5em;
+}
+
+.page-buttons{
+  background: linear-gradient(99deg, #f87010, #c8f2e7);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #1e2519;
+  font-size: 1.1em;
+  height: 28px;
 }
