@@ -67,7 +67,7 @@ function getter(ch){
 }
 
 //create a reset button and add reset logic.
-function createResetButton(arr){
+function createResetButton(){
 	let resetBtn = document.createElement("button");
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
