@@ -1,19 +1,23 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, screen} = require('electron')
 const path = require('path')//for preload
 
 let webContents;// to send messages to the renderer.
 function createWindow () {
   // Create the browser window.
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
+
     webPreferences: {
       //preload is used for IPC.
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
+  mainWindow.removeMenu();
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
