@@ -14,7 +14,6 @@ function connectDB() {
 function insertObject(obj){
     //obj = {key: value};
 
-    //check if db is online, then insert
     db.insert(obj, function (err, newDoc) {
       // Callback is optional
       // newDoc is the newly inserted document, including its _id

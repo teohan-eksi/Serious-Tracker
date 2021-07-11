@@ -101,9 +101,7 @@ function createResetButton(){
 }
 
 function onFinishTimer(){
-	//add the form div and implent the functionalities.
-	console.log("timer finished");
-
+	//add the form div and implement the functionalities.
 	loadPage("main-page-div", "./pages/on-finish-timer.html")
 		.then(()=>{
 			addScript("on-finish-timer", "./scripts/onFinishTimer.js");

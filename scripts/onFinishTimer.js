@@ -18,6 +18,7 @@ function addFinishTimerListeners() {
 
       date = null;
 
+    //save the tracking result.
     if(document.getElementById("title-timer").value != ""){
       window.ipc.insertObject({
         date: timeStamp,

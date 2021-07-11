@@ -18,6 +18,7 @@ function addStopStopwatchListeners() {
 
       date = null;
 
+    //save the tracking result
     if(document.getElementById("title-stopwatch").value != ""){
       window.ipc.insertObject({
         date: timeStamp,

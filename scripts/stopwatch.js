@@ -10,13 +10,11 @@ function startStopwatchBtn(){
   //the following animation function has been taken from Firefox website
   //It calls the callback every frame without clogging UI and delaying anything.
   function callback(timestamp){
-    //how to call getter function at every 30th frame?
     //get the time from main process by invoking a getter function with
     //the specific channel, 'time'. It resolves an array of size 4:
     // time = [hr, min, sec, totalTimePassed]
     stopwatchGetter('stopwatch-time').then((time) => {
-        //TODO refresh ticker when refocused.
-        console.log(time);
+        //console.log(time);
         stopwatchTicker.innerHTML = time[0]+" : "+time[1]+" : "+time[2];
 
         //remove any listener on the channel to save memory.
@@ -33,7 +31,7 @@ function startStopwatchBtn(){
   //session so that the previous stack will be cleared.
   window.ipc.removeListener('stopwatch-time');
 
-  //hide start buttons and show stop button
+  //hide start buttons and show stop and reset buttons
   document.getElementById("start-btn").disabled = true;
   document.getElementById("start-stopwatch-btn").disabled = true;
   createStopButton();
@@ -54,7 +52,6 @@ function createStopButton(arr){
     //window.ipc.removeListener('stopwatch-time');
     window.ipc.clearStopwatchInterval();
 
-		//document.getElementById("on-finish-timer").remove();
     loadPage("main-page-div", "./pages/on-stop-stopwatch.html")
       .then(()=>{
         addScript("on-stop-stopwatch", "./scripts/onStopStopwatch.js");

@@ -17,10 +17,11 @@ function stopwatch(webContents){
       }
     }
 
+    //send the result to render it on the screen in the ticker.
     webContents.send('stopwatch-time', time);
 
     totalT++;
-    time[3] = totalT; //update total time after every tick.
+    time[3] = totalT; //update duration after every tick.
   }, 1000);//1 second intervals
 }
 

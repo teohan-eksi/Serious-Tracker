@@ -27,12 +27,6 @@ h3{
     font-size: 1.25em;
 }
 
-#ticker{
-  font-size: 2em;
-  padding-left: 1em;
-  margin: -2px 0 -6px 0;
-}
-
 #time-container{
   display: flex;
   flex-direction: row;
@@ -103,6 +97,12 @@ h3{
     padding-left: 1em;
 }
 
+#ticker{
+  font-size: 2em;
+  padding-left: 1em;
+  margin: -2px 0 -6px 0;
+}
+
 .t-d-container{
   display: flex;
   flex-direction: row;
@@ -111,7 +111,6 @@ h3{
   align-items: flex-start;
 
   width: 100%;
-
 }
 
 .title-container, .description-container{
@@ -123,7 +122,6 @@ h3{
 
 .description-container{
   margin-left: 8px;
-
   width: 50%;
 }
 

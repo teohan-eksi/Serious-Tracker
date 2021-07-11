@@ -17,6 +17,7 @@ function timer(duration, webContents){
       }
     }
 
+    //send the time to show it in the ticker.
     webContents.send('time', time);
 
     if(totalT >= duration){
@@ -24,7 +25,7 @@ function timer(duration, webContents){
       timeIsUp(webContents);//show notification to the user.
     }
     totalT++;
-    time[3] = totalT; //update total time after every tick.
+    time[3] = totalT; //update duration after every tick.
   }, 1000);//1 second intervals
 }
 
@@ -41,9 +42,6 @@ function timeIsUp(webContents){
         body: 'Time is up!'
       };
   new Notification(notification).show();
-
-  //
-  //webContents.send("on-finish-timer", true);
 }
 
 module.exports = {
