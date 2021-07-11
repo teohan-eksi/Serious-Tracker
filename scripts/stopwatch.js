@@ -1,4 +1,4 @@
-console.log("stopwatch.js");
+
 
 
 function startStopwatchBtn(){

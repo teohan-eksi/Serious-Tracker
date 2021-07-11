@@ -1,4 +1,4 @@
-console.log("timer.js");
+
 
 
 document.getElementById("start-btn").addEventListener("click", ()=>{
@@ -99,5 +99,8 @@ function onFinishTimer(){
 	//add the form div and implent the functionalities.
 	console.log("timer finished");
 
-	loadPage("main-page-div", "./pages/on-finish-timer.html");
+	loadPage("main-page-div", "./pages/on-finish-timer.html")
+		.then(()=>{
+			addScript("on-finish-timer", "./scripts/onFinishTimer.js");
+		});
 }

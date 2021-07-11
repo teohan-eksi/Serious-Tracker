@@ -1,10 +1,10 @@
 
 
 
-addStopStopwatchListeners();
+addFinishTimerListeners();
 
-function addStopStopwatchListeners() {
-  function saveStopwatchClick(event){
+function addFinishTimerListeners() {
+  function saveTimerClick(event){
     event.preventDefault();
 
     let date = new Date();
@@ -18,11 +18,11 @@ function addStopStopwatchListeners() {
 
       date = null;
 
-    if(document.getElementById("title-stopwatch").value != ""){
+    if(document.getElementById("title-timer").value != ""){
       window.ipc.insertObject({
         date: timeStamp,
-        title: document.getElementById("title-stopwatch").value,
-        description: document.getElementById("description-stopwatch").value
+        title: document.getElementById("title-timer").value,
+        description: document.getElementById("description-timer").value
       });
 
       timeStamp = null;
@@ -32,5 +32,5 @@ function addStopStopwatchListeners() {
       console.log("title is required.");
     }
   }
-  document.getElementById("submit-stopwatch").addEventListener("click", saveStopwatchClick);
+  document.getElementById("submit-timer").addEventListener("click", saveTimerClick);
 }

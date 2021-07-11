@@ -1,5 +1,6 @@
 
 
+
 let stopwatchTickerInterval = null;
 function stopwatch(webContents){
   //setting 1 sec intervals and sending them to the renderer.

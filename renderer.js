@@ -5,8 +5,6 @@
 // selectively enable features needed in the rendering
 // process.
 
-console.log("renderer.js");
-
 let activePageID = null;
 
 //load utils.js which is to be used in renderer process features.

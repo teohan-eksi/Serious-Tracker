@@ -1,9 +1,6 @@
 
 
 
-console.log("utils.js");
-
-
 function loadPage(parentID, url){
   return fetch(url)
     .then(response => response.text())
