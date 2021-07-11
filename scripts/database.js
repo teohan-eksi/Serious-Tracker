@@ -34,6 +34,19 @@ function showSavedNot(){
   myNot = null;
 }
 
+function loadDB(webContents) {
+  db.find({}, function (err, docs) {
+    /*// Count all documents in the datastore
+    db.count({}, function (err, count) {
+      // count equals to 4
+    });*/
+
+    // docs is an array containing all documents
+    // If no document is found, docs is equal to []
+      webContents.send("get-db", docs);
+  });
+}
+
 function testDB() {
   console.log(db);
 }
@@ -42,5 +55,6 @@ module.exports = {
   testDB,
   connectDB,
   insertObject,
-  showSavedNot
+  showSavedNot,
+  loadDB
 }

@@ -99,6 +99,10 @@ ipcMain.on("show-saved-not", ()=>{
   db.showSavedNot();
 });
 
+ipcMain.on("load-db", () => {
+  db.loadDB(webContents);
+});
+
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');

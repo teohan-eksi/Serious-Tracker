@@ -51,5 +51,9 @@ contextBridge.exposeInMainWorld('ipc', {
 
 	showSavedNot: () => {
 		ipcRenderer.send("show-saved-not");
+	},
+
+	loadDB: () => {
+		ipcRenderer.send("load-db");
 	}
 });

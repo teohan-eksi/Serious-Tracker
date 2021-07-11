@@ -5,8 +5,13 @@ showDB();
 
 function showDB() {
   //get db and show it to the user.
-  console.log("show db");
-  //window.ipc.showDB();
+  window.ipc.loadDB();
+
+  let dbPromise = window.ipc.returnPromiseFromMain("get-db");
+  dbPromise
+    .then((docs)=>{
+      console.log(docs);
+    });
 }
 
 addHistoryPageListeners();
