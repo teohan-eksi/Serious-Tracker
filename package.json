@@ -22,5 +22,8 @@
   "homepage": "https://github.com/teohan-eksi/Serious-Tracker#readme",
   "devDependencies": {
     "electron": "^13.1.5"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0"
   }
 }

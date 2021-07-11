@@ -65,10 +65,10 @@ function addIndexEventListeners(){
       loadPagePromise = loadPage("root", "pages/history-page-div.html");
       loadPagePromise
         .then(()=>{
-          activePageID = null;//release the previous value to prevent a leak
-          activePageID = "history-page-div"
-          //add history page script
-          //addScript("parentID", "./scripts/.js");
+          activePageID = null;//release the previous value to prevent a possible leak
+          activePageID = "history-page-div";
+
+          addScript("history-page-div", "./scripts/history.js");
         });
       loadPagePromise = null;
 

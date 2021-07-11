@@ -34,5 +34,14 @@ contextBridge.exposeInMainWorld('ipc', {
 
 	removeListener: (ch) => {
 		ipcRenderer.removeAllListeners(ch);
+	},
+
+	//NeDB
+	dbTest: () => {
+		ipcRenderer.send("db-test");
+	},
+
+	showDB: () => {
+		ipcRenderer.send("show-db");
 	}
 });

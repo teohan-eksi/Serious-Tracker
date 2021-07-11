@@ -80,6 +80,18 @@ ipcMain.on('clear-stopwatch-interval', () => {
   clearStopwatchInterval();
 });
 
+//NeDB
+const db = require("./scripts/database.js");
+
+ipcMain.on("db-test", () => {
+  db.testDB();
+});
+
+ipcMain.on('show-db', ()=>{
+  db.showDB();
+});
+
+
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');
