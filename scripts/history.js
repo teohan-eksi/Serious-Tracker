@@ -4,7 +4,9 @@ console.log("history.js");
 showDB();
 
 function showDB() {
-  window.ipc.showDB();
+  //get db and show it to the user.
+  console.log("show db");
+  //window.ipc.showDB();
 }
 
 addHistoryPageListeners();

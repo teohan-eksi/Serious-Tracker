@@ -41,7 +41,11 @@ contextBridge.exposeInMainWorld('ipc', {
 		ipcRenderer.send("db-test");
 	},
 
-	showDB: () => {
-		ipcRenderer.send("show-db");
+	connectDB: () => {
+		ipcRenderer.send("connect-db");
+	},
+
+	insertObject: (obj) => {
+		ipcRenderer.send("insert-myObject", obj);
 	}
 });

@@ -87,10 +87,13 @@ ipcMain.on("db-test", () => {
   db.testDB();
 });
 
-ipcMain.on('show-db', ()=>{
-  db.showDB();
+ipcMain.on('connect-db', ()=>{
+  db.connectDB();
 });
 
+ipcMain.on("insert-myObject", (event, obj)=>{
+  db.insertObject(obj);
+});
 
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){

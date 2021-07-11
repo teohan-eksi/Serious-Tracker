@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       })
       .then(()=>{
         addScript("stopwatch", "./scripts/stopwatch.js")
+      }).then(()=>{
+        //connect to the database
+        window.ipc.connectDB();
       });
   }
   utilsScript = null;

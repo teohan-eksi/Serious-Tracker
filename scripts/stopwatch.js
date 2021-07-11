@@ -55,7 +55,10 @@ function createStopButton(arr){
     window.ipc.clearStopwatchInterval();
 
 		//document.getElementById("on-finish-timer").remove();
-    loadPage("main-page-div", "./pages/on-stop-stopwatch.html");
+    loadPage("main-page-div", "./pages/on-stop-stopwatch.html")
+      .then(()=>{
+        addScript("on-stop-stopwatch", "./scripts/onStopStopwatch.js");
+      });
 
 		stopBtn.remove();
 	});

@@ -84,3 +84,8 @@ function addScript(parentID, elemSrc){
   document.getElementById(parentID).appendChild(newElem);
   newElem = null;
 }
+
+//insert object to the db
+function insertObject(obj) {
+  window.ipc.insertObject(obj);
+}
