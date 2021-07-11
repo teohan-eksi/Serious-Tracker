@@ -47,5 +47,9 @@ contextBridge.exposeInMainWorld('ipc', {
 
 	insertObject: (obj) => {
 		ipcRenderer.send("insert-myObject", obj);
+	},
+
+	showSavedNot: () => {
+		ipcRenderer.send("show-saved-not");
 	}
 });

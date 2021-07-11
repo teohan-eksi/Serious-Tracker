@@ -21,6 +21,20 @@ function insertObject(obj){
     });
 }
 
+function showSavedNot(){
+  //show saved notification to the user.
+  const { Notification} = require('electron');
+
+  let notification = {
+        title: 'It was saved SUCCESSFULLY'
+      };
+  let myNot = new Notification(notification)
+  myNot.show();
+
+  notification = null;
+  myNot = null;
+}
+
 function testDB() {
   console.log(db);
 }
@@ -28,5 +42,6 @@ function testDB() {
 module.exports = {
   testDB,
   connectDB,
-  insertObject
+  insertObject,
+  showSavedNot
 }

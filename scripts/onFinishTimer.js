@@ -29,6 +29,7 @@ function addFinishTimerListeners() {
       timeStamp = null;
 
       //show notification.
+      window.ipc.showSavedNot();
     }else{
       console.log("title is required.");
     }

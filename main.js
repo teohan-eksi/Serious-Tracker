@@ -95,6 +95,10 @@ ipcMain.on("insert-myObject", (event, obj)=>{
   db.insertObject(obj);
 });
 
+ipcMain.on("show-saved-not", ()=>{
+  db.showSavedNot();
+});
+
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');
