@@ -22,7 +22,8 @@ function addFinishTimerListeners() {
       window.ipc.insertObject({
         date: timeStamp,
         title: document.getElementById("title-timer").value,
-        description: document.getElementById("description-timer").value
+        description: document.getElementById("description-timer").value,
+        duration: document.getElementById("ticker").innerHTML
       });
 
       timeStamp = null;
@@ -47,5 +48,5 @@ function addFinishTimerListeners() {
     document.getElementById("start-btn").disabled = false;
 		document.getElementById("start-stopwatch-btn").disabled = false;
   }
-  //document.getElementById("timer-discard").addEventListener("click", timerDiscardClick);
+  document.getElementById("timer-discard").addEventListener("click", timerDiscardClick);
 }

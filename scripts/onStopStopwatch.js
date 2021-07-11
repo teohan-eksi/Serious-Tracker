@@ -22,7 +22,8 @@ function addStopStopwatchListeners() {
       window.ipc.insertObject({
         date: timeStamp,
         title: document.getElementById("title-stopwatch").value,
-        description: document.getElementById("description-stopwatch").value
+        description: document.getElementById("description-stopwatch").value,
+        duration: document.getElementById("stopwatch-ticker").innerHTML
       });
 
       timeStamp = null;
