@@ -5,7 +5,8 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 	let h = document.getElementById("h").value;
 	let min = document.getElementById("min").value;
 	let sec = document.getElementById("sec").value;
-	let ticker = document.getElementById("ticker"); //where the h:min:sec is showed
+
+	let ticker = document.getElementById("ticker");
 
 	//init time values. Make them 0 if they were left empty; convert to number
 	// if an input was given.
@@ -72,8 +73,7 @@ function createResetButton(){
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
 	resetBtn.classList.add("page-buttons");
-	document.getElementById("timer")
-		.insertBefore(resetBtn, document.getElementById("ticker"));
+	document.getElementById("timer-items-container").appendChild(resetBtn);
 
 	resetBtn.addEventListener("click", ()=>{
 		window.ipc.clearTimerInterval();

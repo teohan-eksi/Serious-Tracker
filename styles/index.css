@@ -6,10 +6,6 @@ body{
   color: #1e2519;
 }
 
-h2 {
-  font-size: 2em;
-}
-
 .main-menu-buttons{
   background: linear-gradient(99deg, #f87010, #c8f2e7);
   border-radius: 4px;
@@ -22,6 +18,61 @@ h2 {
   width: 4.5em;
 }
 
+h2 {
+  font-size: 2em;
+}
+
+h3{
+    font-size: 1.25em;
+}
+
+#time-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer{
+  padding-left: 2em;
+}
+
+#stopwatch {
+  padding-left: 2em;
+  margin-right: 45%;
+}
+
+#timer input, #timer span {
+  height: 1.5em;
+  width: 1.5em;
+  font-size: 2em;
+  text-align: center;
+  margin: 0 -8px;
+}
+
+#start-btn {
+  margin-left: 16px;
+}
+
+#start-stopwatch-btn{
+  margin-left: 8px;
+}
+
+#timer-items-container, #stopwatch-items-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* if they have the same height, they align better.*/
+  height: 60px;
+}
+
+#stopwatch p{
+  font-size: 2em;
+  text-align: center;
+}
+
 .page-buttons{
   background: linear-gradient(99deg, #f87010, #c8f2e7);
   border-radius: 4px;
@@ -29,4 +80,5 @@ h2 {
   color: #1e2519;
   font-size: 1.1em;
   height: 28px;
+  margin: 0 4px;
 }

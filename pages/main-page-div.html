@@ -2,27 +2,32 @@
 
 
 <div id="main-page-div">
-  <h2>Track your time to manage it!<br>
-      Checkout the tracking history.<br>
-  </h2>
+  <h2>Track your time to better manage it!</h2>
 
-  <div id="timer">
-  	<p>Start tracking. Set the timer and go!<br>
-       Get notified when it finishes.</p>
+  <div id="time-container">
+    <div id="timer">
+    	<h3>Timer</h3>
 
-  	<input id="h" type="number" min="0" placeholder="0">
-  	<input id="min" type="number" min="0" placeholder="0">
-  	<input id="sec" type="number" min="0" placeholder="0">
+      <div id="timer-items-container">
+      	<input id="h" type="number" min="0" placeholder="0">
+        <span>:</span>
+      	<input id="min" type="number" min="0" placeholder="0">
+        <span>:</span>
+        <input id="sec" type="number" min="0" placeholder="0">
 
-  	<button id="start-btn" class="page-buttons">Start</button>
+      	<button id="start-btn" class="page-buttons">Start</button>
+      </div>
+    </div>
 
-  	<p id="ticker"></p>
+    <div id="stopwatch">
+      <h3>Stopwatch</h3>
 
-    <p>Or just start the time but don't forget to finish it.</p>
+      <div id="stopwatch-items-container">
+        <p id="stopwatch-ticker">0:0:0</p>
+
+        <button id="start-stopwatch-btn" class="page-buttons">Start</button>
+      </div>
+    </div>
   </div>
-
-  <div id="stopwatch">
-    <p id="stopwatch-ticker">0:0:0</p>
-    <button id="start-stopwatch-btn" class="page-buttons">Start</button>
-  </div>
+  <p id="ticker"></p>
 </div>

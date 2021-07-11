@@ -47,8 +47,7 @@ function createStopButton(arr){
 	stopBtn.id = "stop-btn";
 	stopBtn.innerHTML = "Stop";
   stopBtn.classList.add("page-buttons");
-	document.getElementById("stopwatch")
-		.insertBefore(stopBtn, document.getElementById("stopwatch-ticker"));
+	document.getElementById("stopwatch-items-container").appendChild(stopBtn);
 
 	stopBtn.addEventListener("click", ()=>{
     //if ticker shows multiple times, uncomment the below line.
@@ -71,13 +70,12 @@ function createStopwatchResetButton(){
 	resetBtn.id = "reset-btn";
 	resetBtn.innerHTML = "Reset";
   resetBtn.classList.add("page-buttons");
-	document.getElementById("stopwatch")
-		.insertBefore(resetBtn, document.getElementById("stopwatch-ticker"));
+	document.getElementById("stopwatch-items-container").appendChild(resetBtn);
 
 	resetBtn.addEventListener("click", ()=>{
 		window.ipc.clearStopwatchInterval();
 
-    document.getElementById("stopwatch-ticker").innerHTML = "";
+    document.getElementById("stopwatch-ticker").innerHTML = "0:0:0";
 
 		//document.getElementById("on-finish-timer").remove();
 
