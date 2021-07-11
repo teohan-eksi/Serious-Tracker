@@ -17,7 +17,7 @@ function startStopwatchBtn(){
     stopwatchGetter('stopwatch-time').then((time) => {
         //TODO refresh ticker when refocused.
         console.log(time);
-        stopwatchTicker.innerHTML = time[0]+":"+time[1]+":"+time[2];
+        stopwatchTicker.innerHTML = time[0]+" : "+time[1]+" : "+time[2];
 
         //remove any listener on the channel to save memory.
         window.ipc.removeListener('stopwatch-time');

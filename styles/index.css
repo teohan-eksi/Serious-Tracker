@@ -6,6 +6,7 @@ body{
   color: #1e2519;
 }
 
+/* Home and History buttons */
 .main-menu-buttons{
   background: linear-gradient(99deg, #f87010, #c8f2e7);
   border-radius: 4px;
@@ -26,10 +27,16 @@ h3{
     font-size: 1.25em;
 }
 
+#ticker{
+  font-size: 2em;
+  padding-left: 1em;
+  margin: -2px 0 -6px 0;
+}
+
 #time-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -39,7 +46,7 @@ h3{
 
 #stopwatch {
   padding-left: 2em;
-  margin-right: 45%;
+  margin-left: 10%;
 }
 
 #timer input, #timer span {
@@ -81,4 +88,58 @@ h3{
   font-size: 1.1em;
   height: 28px;
   margin: 0 4px;
+}
+
+.save-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  height: 325px;
+}
+
+#on-stop-stopwatch, #on-finish-timer{
+    padding-left: 1em;
+}
+
+.t-d-container{
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+
+}
+
+.title-container, .description-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.description-container{
+  margin-left: 8px;
+
+  width: 50%;
+}
+
+.save-form label {
+  font-size: 1.5em;
+}
+
+.save-form input, .save-form textarea{
+  font-size: 1.25em;
+}
+
+.save-form textarea{
+  width: 90%;
+  height: 15em;
+}
+
+#submit-timer, #submit-stopwatch{
+  margin-top: 16px;
 }

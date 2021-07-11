@@ -1,15 +1,19 @@
 <div id="on-finish-timer">
-  <p>Time is up! Do you want to save it?</p>
+  <h3>Time is up! Do you want to save it?</h3>
 
-  <form action="#">
+  <form class="save-form">
     <input class="page-buttons" id="discard" type="button" value="Discard">
-
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-
-    <label for="description">Description (optional):</label>
-    <input type="text" id="description" name="description ">
-
-    <input class="page-buttons" type="submit" value="Save">
+    <div class="t-d-container">
+      <div class="title-container">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <input class="page-buttons" id="submit-timer" type="submit" value="Save">
+      </div>
+      <div class="description-container">
+        <label for="description">Description (optional):</label>
+        <textarea id="description" name="stopwatch-description"
+          rows="12" cols="70"></textarea>
+      </div>
+    </div>
   </form>
 </div>

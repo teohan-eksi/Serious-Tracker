@@ -1,15 +1,19 @@
 <div id="on-stop-stopwatch">
-  <p>Do you want to save the time?</p>
+  <h3>Do you want to save the time?</h3>
 
-  <form action="">
+  <form class="save-form">
     <input class="page-buttons" id="discard-stopwatch" type="button" value="Discard">
-
-    <label for="title">Title:</label>
-    <input type="text" id="title-stopwatch" name="title" required>
-
-    <label for="description">Description (optional):</label>
-    <input type="text" id="description-stopwatch" name="description ">
-
-    <input class="page-buttons" id="submit-stopwatch" type="submit" value="Save">
+    <div class="t-d-container">
+      <div class="title-container">
+        <label for="title">Title:</label>
+        <input type="text" id="title-stopwatch" name="title" required>
+        <input class="page-buttons" id="submit-stopwatch" type="submit"
+          value="Save">
+      </div>
+      <div class="description-container">
+        <label for="description">Description (optional):</label>
+        <textarea id="description-stopwatch" name="stopwatch-description"></textarea>
+      </div>
+    </div>
   </form>
 </div>

@@ -41,7 +41,7 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 			getter('time').then((time) => {
 					//TODO refresh ticker when refocused.
 					console.log(time);
-					ticker.innerHTML = time[0]+":"+time[1]+":"+time[2];
+					ticker.innerHTML = time[0]+" : "+time[1]+" : 	"+time[2];
 
 					//remove any listener on the channel 'time' to save memory.
 					window.ipc.removeListener('time');
