@@ -33,4 +33,15 @@ function addStopStopwatchListeners() {
     }
   }
   document.getElementById("submit-stopwatch").addEventListener("click", saveStopwatchClick);
+
+  function stopwatchDiscardClick() {
+    document.getElementById("reset-btn").remove();
+    document.getElementById("stopwatch-ticker").innerHTML = "0 : 0 : 0";
+
+    document.getElementById("on-stop-stopwatch").remove();
+
+    document.getElementById("start-btn").disabled = false;
+		document.getElementById("start-stopwatch-btn").disabled = false;
+  }
+  document.getElementById("discard-stopwatch").addEventListener("click", stopwatchDiscardClick);
 }

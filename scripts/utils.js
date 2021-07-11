@@ -21,8 +21,6 @@ function loadPage(parentID, url){
 }
 
 function addIndexEventListeners(){
-  console.log("addIndexEventListeners");
-
   let loadPagePromise = null;
 
   //home button

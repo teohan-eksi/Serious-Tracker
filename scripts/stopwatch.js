@@ -78,9 +78,7 @@ function createStopwatchResetButton(){
 	resetBtn.addEventListener("click", ()=>{
 		window.ipc.clearStopwatchInterval();
 
-    document.getElementById("stopwatch-ticker").innerHTML = "0:0:0";
-
-		//document.getElementById("on-finish-timer").remove();
+    document.getElementById("stopwatch-ticker").innerHTML = "0 : 0 : 0";
 
     document.getElementById("start-btn").disabled = false;
 		document.getElementById("start-stopwatch-btn").disabled = false;

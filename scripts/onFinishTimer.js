@@ -33,4 +33,19 @@ function addFinishTimerListeners() {
     }
   }
   document.getElementById("submit-timer").addEventListener("click", saveTimerClick);
+
+  function timerDiscardClick() {
+    document.getElementById("h").value="";
+		document.getElementById("min").value="";
+		document.getElementById("sec").value="";
+		document.getElementById("ticker").innerHTML = "";
+
+    document.getElementById("reset-btn").remove();
+
+    document.getElementById("on-finish-timer").remove();
+
+    document.getElementById("start-btn").disabled = false;
+		document.getElementById("start-stopwatch-btn").disabled = false;
+  }
+  //document.getElementById("timer-discard").addEventListener("click", timerDiscardClick);
 }

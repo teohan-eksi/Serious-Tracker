@@ -47,6 +47,7 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 					window.ipc.removeListener('time');
 
 					//stop refreshing when the time limit is reached
+					console.log(duration);
 					if(time[3] !== duration){
 						requestAnimationFrame(callback);//returns a unique ID, reqID.
 					}else {
@@ -55,6 +56,12 @@ document.getElementById("start-btn").addEventListener("click", ()=>{
 			});
 		}
 		requestAnimationFrame(callback);
+
+		//every time the timer stops, one listener stays.
+	  //over multiple stops, this causes multiple calls to the getter.
+	  //to prevent this bug, clear the residual listener before starting the new
+	  //session so that the previous stack will be cleared.
+		window.ipc.removeListener('time');
 
 		//hide start buttons and show reset button
 		document.getElementById("start-btn").disabled = true;
@@ -86,7 +93,6 @@ function createResetButton(){
 		if(document.getElementById("on-finish-timer") != null){
       document.getElementById("on-finish-timer").remove();
     }
-
 
 		document.getElementById("start-btn").disabled = false;
 		document.getElementById("start-stopwatch-btn").disabled = false;
