@@ -80,6 +80,12 @@ function addScript(parentID, elemSrc){
   newElem = null;
 }
 
+function createElem(elemTag, inner) {
+  let elem = document.createElement(elemTag);
+  elem.innerHTML = inner;
+  return elem;
+}
+
 //insert object to the db
 function insertObject(obj) {
   window.ipc.insertObject(obj);

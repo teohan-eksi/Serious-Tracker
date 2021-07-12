@@ -21,10 +21,11 @@ body{
 
 h2 {
   font-size: 2em;
+  margin: 10px 0 -10px 0;
 }
 
 h3{
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 
 #time-container{
@@ -32,6 +33,7 @@ h3{
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+
 }
 
 #timer{
@@ -140,4 +142,44 @@ h3{
 
 #submit-timer, #submit-stopwatch{
   margin-top: 16px;
+}
+
+/* History page */
+
+#db-table-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  column-gap: 10px;
+  row-gap: 1em;
+
+
+  background-color: yellow;
+}
+
+.date-col{
+  grid-column: 1;
+  grid-row: 1;
+  background-color: green;
+}
+
+.title-col{
+  grid-column: 2;
+  grid-row: 1;
+  background-color: red;
+}
+
+.duration-col{
+  grid-column: 3;
+  grid-row: 1;
+  background-color: blue;
+}
+.description-col{
+  grid-column: 4;
+  grid-row: 1;
+  background-color: orange;
+}
+
+#db-table-container p {
+  font-size: 1.25em;
 }
