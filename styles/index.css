@@ -150,36 +150,41 @@ h3{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(50px, auto);
-  column-gap: 10px;
-  row-gap: 1em;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+  place-items: center;
 
-
-  background-color: yellow;
+  margin-top: 4px;
 }
 
 .date-col{
   grid-column: 1;
   grid-row: 1;
-  background-color: green;
 }
 
 .title-col{
   grid-column: 2;
   grid-row: 1;
-  background-color: red;
 }
 
 .duration-col{
   grid-column: 3;
   grid-row: 1;
-  background-color: blue;
 }
+
 .description-col{
   grid-column: 4;
   grid-row: 1;
-  background-color: orange;
 }
 
 #db-table-container p {
   font-size: 1.25em;
+}
+
+.db-table-container-item{
+  border: 1px solid black;
+  margin: 0px;
+  place-self: stretch;
+  text-align: center;
+  line-height: 68px;
 }
