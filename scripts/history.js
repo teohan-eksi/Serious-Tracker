@@ -20,12 +20,18 @@ function showDB() {
               //create a div. Put the date and delete button inside it,
               //then add the div to the table.
               let elemDate = document.createElement("div");
+              //align the date and delete button in a flexbox.
+              elemDate.style = "display: flex; align-items: center;";
+
               //check out createElem() in utils.js
               elemDate.appendChild(createElem("p", docs[i].date));
+
               let deleteBtn = document.createElement("button");
               deleteBtn.innerHTML = "X";
+
               //add event listener to remove the entry.
               addDeleteBtnEL(elemDate, deleteBtn, docs[i].date);
+
               //append button to the div, div to the container and
               //move on to the other columns.
               elemDate.appendChild(deleteBtn);

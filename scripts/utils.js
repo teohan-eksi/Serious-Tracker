@@ -83,7 +83,6 @@ function addScript(parentID, elemSrc){
 function createElem(elemTag, inner) {
   let elem = document.createElement(elemTag);
   elem.innerHTML = inner;
-  elem.style = "display:inline;";
   return elem;
 }
 
