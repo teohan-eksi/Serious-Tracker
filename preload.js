@@ -55,5 +55,9 @@ contextBridge.exposeInMainWorld('ipc', {
 
 	loadDB: () => {
 		ipcRenderer.send("load-db");
+	},
+
+	removeEntry: (query) => {
+		ipcRenderer.send("remove-entry", query);
 	}
 });

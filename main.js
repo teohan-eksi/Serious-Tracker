@@ -103,6 +103,10 @@ ipcMain.on("load-db", () => {
   db.loadDB(webContents);
 });
 
+ipcMain.on("remove-entry", (event, query)=>{
+  db.removeEntry(query);
+});
+
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');
