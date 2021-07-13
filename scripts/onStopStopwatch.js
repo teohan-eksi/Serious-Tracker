@@ -31,6 +31,9 @@ function addStopStopwatchListeners() {
 
       //show notification.
       window.ipc.showSavedNot();
+
+      //remove on-stop-stopwatch.html
+      document.getElementById("on-stop-stopwatch").remove();
     }else{
       console.log("title is required.");
     }

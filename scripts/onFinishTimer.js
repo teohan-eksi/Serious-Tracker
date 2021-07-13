@@ -31,6 +31,9 @@ function addFinishTimerListeners() {
 
       //show notification.
       window.ipc.showSavedNot();
+
+      //remove on-finish-timer.html
+      document.getElementById("on-finish-timer").remove();
     }else{
       console.log("title is required.");
     }
