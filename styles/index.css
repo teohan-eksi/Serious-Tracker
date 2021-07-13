@@ -188,3 +188,40 @@ h3{
   text-align: center;
   line-height: 68px;
 }
+
+/* Update Entry page */
+#update-entry{
+  background-color: gray;
+  color: white;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  font-size: 1.25em;
+}
+
+#update-entry input{
+  font-size: 1em;
+}
+
+.update-entry-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 200px;
+}
+
+.update-entry-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 100%;
+  margin-bottom: 72px;
+}
+
+.update-entry-buttons button{
+  font-size: 1em;
+}

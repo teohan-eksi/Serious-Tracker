@@ -59,5 +59,13 @@ contextBridge.exposeInMainWorld('ipc', {
 
 	removeEntry: (query) => {
 		ipcRenderer.send("remove-entry", query);
+	},
+
+	getEntrywithID: (entryID) => {
+		ipcRenderer.send("get-entry", entryID);
+	},
+
+	updateEntry: (entryID, nTitle, nDesc) => {
+		ipcRenderer.send("update-entry", entryID, nTitle, nDesc);
 	}
 });

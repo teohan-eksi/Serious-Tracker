@@ -53,6 +53,16 @@ function removeEntry(query) {
   db.remove({ date: query}, {}, function (err, numRemoved) {});
 }
 
+function getEntrywithID(entryID, webContents) {
+  db.find({_id: entryID}, function (err, entry){
+    webContents.send("get-your-entry", entry);
+  });
+}
+
+function updateEntry(entryID, newTitle, newDesc) {
+  db.update({ _id: entryID}, {$set: {title: newTitle, description: newDesc}}, {});
+}
+
 function testDB() {
   console.log(db);
 }
@@ -63,5 +73,7 @@ module.exports = {
   insertObject,
   showSavedNot,
   loadDB,
-  removeEntry
+  removeEntry,
+  getEntrywithID,
+  updateEntry
 }

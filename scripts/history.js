@@ -64,6 +64,9 @@ function showDB() {
               updateBtn = null;
               container.appendChild(elemDescription);
               elemDescription = null;
+
+              window.ipc.removeListener('get-db-count');
+              window.ipc.removeListener('get-db');
             }
         });
     });
@@ -84,7 +87,50 @@ function addDeleteBtnEL(removeThisEntry, deleteBtn, query) {
 
 function addUpdateBtnEL(entryID, updateBtn) {
   updateBtn.addEventListener("click", ()=>{
-    console.log("ID: " + entryID);
+    //console.log("ID: " + entryID);
+    loadPage("history-page-div", "./pages/update-entry.html")
+      .then(()=>{
+        window.ipc.getEntrywithID(entryID);
+
+        window.ipc.returnPromiseFromMain("get-your-entry")
+          .then((entry)=>{
+            //show entry values based on the ID given.
+            document.getElementById("update-entry-date").innerHTML =
+              entry[0].date;
+            document.getElementById("update-entry-title").value =
+              entry[0].title;
+            document.getElementById("update-entry-duration").innerHTML =
+              entry[0].duration;
+            document.getElementById("update-entry-description").value =
+              entry[0].description;
+
+            window.ipc.removeListener('get-your-entry');
+          })
+          .then(()=>{
+            //add event listeners for submit and cancel buttons
+            document.getElementById("cancel-update").addEventListener("click", ()=>{
+              document.getElementById("update-entry").remove();
+            });
+
+            document.getElementById("submit-update").addEventListener("click", (event)=>{
+              //create a new entry with the new values, update them to the db
+              //and refresh the table.
+              event.preventDefault();
+              window.ipc.updateEntry(entryID,
+                document.getElementById("update-entry-title").value,
+                document.getElementById("update-entry-description").value);
+
+              //remove the update form and refresh the table
+              document.getElementById("update-entry").remove();
+              //refresh the table after removing the entry
+              document.getElementById("history-page-div").remove();
+              loadPage("root", "pages/history-page-div.html")
+                .then(()=>{
+                  showDB();
+                });
+            });
+          });
+      });
   });
 }
 

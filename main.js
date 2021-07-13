@@ -107,6 +107,14 @@ ipcMain.on("remove-entry", (event, query)=>{
   db.removeEntry(query);
 });
 
+ipcMain.on("get-entry", (event, entryID) => {
+  db.getEntrywithID(entryID, webContents);
+});
+
+ipcMain.on("update-entry", (event, entryID, nTitle, nDesc)=>{
+  db.updateEntry(entryID, nTitle, nDesc);
+});
+
 //for sending data to the renderer immediately after the mainWindow is created.
 function sendToRenderer(){
   //webContents.send('ch1', 'hi!');
