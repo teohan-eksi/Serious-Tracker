@@ -26,6 +26,7 @@ function showDB() {
               //check out createElem() in utils.js
               elemDate.appendChild(createElem("p", docs[i].date));
 
+              //create a delete button
               let deleteBtn = document.createElement("button");
               deleteBtn.innerHTML = "X";
 
@@ -41,7 +42,28 @@ function showDB() {
 
               container.appendChild(createElem("p", docs[i].title));
               container.appendChild(createElem("p", docs[i].duration));
-              container.appendChild(createElem("p", docs[i].description));
+
+
+              //update operation
+              //create a div. Put the description and update button inside it,
+              //then add the div to the table.
+              let elemDescription = document.createElement("div");
+              //align the items in a flexbox.
+              elemDescription.style = "display: flex; align-items: center;";
+
+              elemDescription.appendChild(createElem("p", docs[i].description));
+
+              //add an update button next to description
+              let updateBtn = document.createElement("button");
+              updateBtn.innerHTML = "U";
+              //add event listener to update the entry
+              addUpdateBtnEL(docs[i]._id, updateBtn);
+
+              //append button to the div, div to the container and
+              elemDescription.appendChild(updateBtn);
+              updateBtn = null;
+              container.appendChild(elemDescription);
+              elemDescription = null;
             }
         });
     });
@@ -57,6 +79,12 @@ function addDeleteBtnEL(removeThisEntry, deleteBtn, query) {
       .then(()=>{
         showDB();
       });
+  });
+}
+
+function addUpdateBtnEL(entryID, updateBtn) {
+  updateBtn.addEventListener("click", ()=>{
+    console.log("ID: " + entryID);
   });
 }
 
