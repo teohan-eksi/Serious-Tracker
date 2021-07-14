@@ -1,19 +1,21 @@
 
 
 
+//first business is to show the saved records.
 showDB();
 
 function showDB() {
-  //get db and show it to the user.
+  //request the db to be send through webcontents.send
   window.ipc.loadDB();
 
   //get the number of items in the db, then start populating the container.
   let dbCountPromise = window.ipc.returnPromiseFromMain("get-db-count");
   dbCountPromise
     .then((dbCount)=>{
+        //get the db and show it to the user.
         let dbPromise = window.ipc.returnPromiseFromMain("get-db");
         dbPromise
-          //docs is all the items in the db
+          //docs is ALL the items in the db
           .then((docs)=>{
             let container = document.getElementById("db-table-container");
             for(let i = 0; i<dbCount; i++){
@@ -59,7 +61,7 @@ function showDB() {
               //add event listener to update the entry
               addUpdateBtnEL(docs[i]._id, updateBtn);
 
-              //append button to the div, div to the container and
+              //append button to the div, div to the container.
               elemDescription.appendChild(updateBtn);
               updateBtn = null;
               container.appendChild(elemDescription);
@@ -87,14 +89,14 @@ function addDeleteBtnEL(removeThisEntry, deleteBtn, query) {
 
 function addUpdateBtnEL(entryID, updateBtn) {
   updateBtn.addEventListener("click", ()=>{
-    //console.log("ID: " + entryID);
     loadPage("history-page-div", "./pages/update-entry.html")
       .then(()=>{
+        //call the db to give the entry with the given ID.
         window.ipc.getEntrywithID(entryID);
 
         window.ipc.returnPromiseFromMain("get-your-entry")
           .then((entry)=>{
-            //show entry values based on the ID given.
+            //show the entry with the given ID.
             document.getElementById("update-entry-date").innerHTML =
               entry[0].date;
             document.getElementById("update-entry-title").value =
@@ -113,9 +115,10 @@ function addUpdateBtnEL(entryID, updateBtn) {
             });
 
             document.getElementById("submit-update").addEventListener("click", (event)=>{
-              //create a new entry with the new values, update them to the db
-              //and refresh the table.
+              //update the entry with the new values and refresh the table.
+
               event.preventDefault();
+
               window.ipc.updateEntry(entryID,
                 document.getElementById("update-entry-title").value,
                 document.getElementById("update-entry-description").value);
@@ -132,10 +135,4 @@ function addUpdateBtnEL(entryID, updateBtn) {
           });
       });
   });
-}
-
-addHistoryPageListeners();
-
-function addHistoryPageListeners(){
-
 }

@@ -2,7 +2,6 @@
 
 
 function startStopwatchBtn(){
-  console.log("startStopwatchBtn clicked");
   let stopwatchTicker = document.getElementById("stopwatch-ticker");
 
   window.ipc.startStopwatch();

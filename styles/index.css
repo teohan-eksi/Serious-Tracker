@@ -47,7 +47,7 @@ h3{
 
 #timer input, #timer span {
   height: 1.5em;
-  width: 1.5em;
+  width: 2em;
   font-size: 2em;
   text-align: center;
   margin: 0 -8px;
@@ -179,6 +179,10 @@ h3{
 
 #db-table-container p {
   font-size: 1.25em;
+}
+
+#db-table-container button{
+    margin-left: 10px;
 }
 
 .db-table-container-item{

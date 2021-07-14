@@ -7,13 +7,11 @@ let db = null;
 function connectDB() {
   if(db == null){
     db = new Datastore({ filename: './history.db', autoload: true });
-    console.log("NeDB is online!");
   }
 }
 
 function insertObject(obj){
     //obj = {key: value};
-
     db.insert(obj, function (err, newDoc) {
       // Callback is optional
       // newDoc is the newly inserted document, including its _id
@@ -25,7 +23,7 @@ function showSavedNot(){
   const { Notification} = require('electron');
 
   let notification = {
-        title: 'It was saved SUCCESSFULLY'
+        title: 'It was saved SUCCESSFULLY.'
       };
   let myNot = new Notification(notification)
   myNot.show();
@@ -41,7 +39,7 @@ function loadDB(webContents) {
   });
 
   db.find({}, function (err, docs) {
-    // docs is an array containing all documents
+    // docs is an array containing ALL documents
     // If no document is found, docs is equal to []
     // BUG: docs is out of order here, fix that.
     //console.log(docs);
@@ -50,6 +48,7 @@ function loadDB(webContents) {
 }
 
 function removeEntry(query) {
+  //since date is unique, remove an entry queried with its date.
   db.remove({ date: query}, {}, function (err, numRemoved) {});
 }
 
@@ -60,6 +59,7 @@ function getEntrywithID(entryID, webContents) {
 }
 
 function updateEntry(entryID, newTitle, newDesc) {
+  //This is taken from NeDB documentation.
   db.update({ _id: entryID}, {$set: {title: newTitle, description: newDesc}}, {});
 }
 

@@ -34,8 +34,6 @@ function addFinishTimerListeners() {
 
       //remove on-finish-timer.html
       document.getElementById("on-finish-timer").remove();
-    }else{
-      console.log("title is required.");
     }
   }
   document.getElementById("submit-timer").addEventListener("click", saveTimerClick);

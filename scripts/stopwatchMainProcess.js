@@ -27,7 +27,6 @@ function stopwatch(webContents){
 
 function clearStopwatchInterval(){
   clearInterval(stopwatchTickerInterval);
-  console.log("stopwatchTickerInterval cleared.");
 }
 
 module.exports = {

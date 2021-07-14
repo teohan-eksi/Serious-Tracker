@@ -34,8 +34,6 @@ function addStopStopwatchListeners() {
 
       //remove on-stop-stopwatch.html
       document.getElementById("on-stop-stopwatch").remove();
-    }else{
-      console.log("title is required.");
     }
   }
   document.getElementById("submit-stopwatch").addEventListener("click", saveStopwatchClick);

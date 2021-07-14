@@ -14,7 +14,7 @@ function loadPage(parentID, url){
       document.getElementById(parentID)
         .appendChild(html_doc.body.childNodes[0]);
 
-      console.log(url + " loaded");
+      //console.log(url + " loaded");
 
       //return stuff; if necessary.
     });
@@ -45,7 +45,7 @@ function addIndexEventListeners(){
         });
       loadPagePromise = null;
 
-      console.log("homeBtnClick");
+      //console.log("homeBtnClick");
     }
   }
   document.getElementById("home-btn").addEventListener("click", homeBtnClick);
@@ -67,7 +67,7 @@ function addIndexEventListeners(){
         });
       loadPagePromise = null;
 
-      console.log("historyBtnClick");
+      //console.log("historyBtnClick");
     }
   }
   document.getElementById("history-page-btn").addEventListener("click", historyBtnClick);
