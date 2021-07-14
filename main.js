@@ -23,6 +23,9 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
 
+  //
+  mainWindow.setIcon(path.join(__dirname, './st-icon.png'));
+  
   //to send messages from main to renderer.
   webContents = mainWindow.webContents;
   webContents.on('did-finish-load', () => {
