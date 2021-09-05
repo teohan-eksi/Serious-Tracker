@@ -1,7 +1,8 @@
 
 
 
-Track your time to better manage it.
+Time tracker desktop application developed using ElectronJS framework and has a database implementation (NeDB, subset of MongoDB's API)
+capable of doing CRUD operations.
 
 There are two main features, a timer and a stopwatch.
 Use them to measure time and keep track of how much time
